@@ -41,6 +41,9 @@ services:
       - no-new-privileges:true
     cap_drop:
       - ALL
+    # prevent error on startup when poller comes up before gotenberg
+    depends_on:
+      - gotenberg
 
 volumes:
   bridge-data:
